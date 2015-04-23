@@ -5,7 +5,7 @@ object PersonPatternMatchApp extends App {
   case class Person(name: String, age: Int)
 
   val bob = Person("Bob", 20)
-  val john = Person("John", 18)
+  val john = Person("John", 17)
 
   def callMeSir(p: Person): Person = p match {
     case p@Person(name, age) if age >= 18 => p.copy(name = s"Sir $name")

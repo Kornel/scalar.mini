@@ -4,6 +4,7 @@ object OwnForApp extends App {
 
   case class Circus[A](n: A) {
     def map[B](f: A => B): Circus[B] = Circus(f(n))
+
     def flatMap[B](f: A => Circus[B]): Circus[B] = f(n)
   }
 

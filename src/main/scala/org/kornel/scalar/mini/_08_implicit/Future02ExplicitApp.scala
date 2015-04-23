@@ -10,9 +10,15 @@ object Future02ExplicitApp extends App {
   val threadPool = Executors.newFixedThreadPool(2)
   val executionContext = ExecutionContext.fromExecutor(threadPool)
 
-  val eventualSum = Future(10 + 20)(executionContext)
+  val eventualSum = Future {
+    println(s"Sum is doing work in ${Thread.currentThread.getName}")
+    10 + 20
+  }(executionContext)
 
-  val eventualProduct = Future(5 * 6)(executionContext)
+  val eventualProduct = Future {
+    println(s"Sum is doing work in ${Thread.currentThread.getName}")
+    5 * 6
+  }(executionContext)
 
   val sum = Await.result(eventualSum, 5.seconds)
   val product = Await.result(eventualProduct, 5.seconds)

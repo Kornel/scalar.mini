@@ -2,16 +2,16 @@ package org.kornel.scalar.mini._05_beexplicit.oet
 
 object OptionApp extends App {
 
-  case class Person(name: String, age: Int)
+  case class Person(name: String, id: Int)
 
-  def findByAge(people: List[Person], age: Int): Option[Person] = {
-    people.find(_.age == 34)
+  def findById(people: List[Person], id: Int): Option[Person] = {
+    people.find(_.id == id)
   }
 
   val people = Person("John", 20) :: Person("Barry", 34) :: Person("Mary", 60) :: Nil
 
-  val byAge1 = findByAge(people, 34).getOrElse(Person("Anonymous", 0))
-  val byAge2 = findByAge(people, 99).getOrElse(Person("Anonymous", 0))
+  val byAge1 = findById(people, 34)
+  val byAge2 = findById(people, 99)
 
   println(byAge1)
   println(byAge2)

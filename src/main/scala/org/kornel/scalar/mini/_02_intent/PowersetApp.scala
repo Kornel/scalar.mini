@@ -11,4 +11,5 @@ object PowersetApp extends App {
     }
   }
 
+  println(powerset(elements))
 }

@@ -4,8 +4,8 @@ object EitherApp extends App {
 
   case class Person(name: String, age: Int)
 
-  def findByAge(people: List[Person], age: Int): Either[String, Person] = {
-    people.find(_.age == 34) match {
+  def findById(people: List[Person], id: Int): Either[String, Person] = {
+    people.find(_.age == id) match {
       case None => Left("Did not find anyone :(")
       case Some(p) => Right(p)
     }
@@ -13,12 +13,12 @@ object EitherApp extends App {
 
   val people = Person("John", 20) :: Person("Barry", 34) :: Person("Mary", 60) :: Nil
 
-  findByAge(people, 34).fold(
+  findById(people, 34).fold(
     s => println(s),
     p => println(p)
   )
 
-  findByAge(people, 99).fold(
+  findById(people, 99).fold(
     s => println(s),
     p => println(p)
   )

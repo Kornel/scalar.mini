@@ -7,13 +7,11 @@ import scala.concurrent.ExecutionContext.Implicits.global
 object Future01ImplicitApp extends App {
 
   val eventualSum = Future {
-    Thread.sleep(2000)
     println(s"Sum is doing work in ${Thread.currentThread.getName}")
     10 + 20
   }
 
   val eventualProduct = Future {
-    Thread.sleep(1000)
     println(s"Product is doing work in ${Thread.currentThread.getName}")
     5 * 6
   }

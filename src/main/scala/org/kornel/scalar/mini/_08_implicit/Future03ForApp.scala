@@ -7,8 +7,8 @@ object Future03ForApp extends App {
 
   implicit val executionContext = ExecutionContext.global
 
-  val eventualA = Future(10 + 20)(executionContext)
-  val eventualB = Future(5 * 6)(executionContext)
+  val eventualA = Future(10 + 20)
+  val eventualB = Future(5 * 6)
 
   val eventualSum = for {
     a <- eventualA
