@@ -22,14 +22,9 @@ object ClubbedToDeathApp extends App {
 
   val Ruby = Person(Female, 25, Set("High Heels"), Tipsy)
 
-  ClubbedToDeath.costToEnter(Dave)
+  val people = List(Ken, Dave, Ruby, Ruby.copy(age = 17), Ken.copy(sobriety = Unconscious))
 
-  ClubbedToDeath.costToEnter(Ken)
-
-  ClubbedToDeath.costToEnter(Ruby)
-
-  ClubbedToDeath.costToEnter(Ruby.copy(age = 17))
-
-  ClubbedToDeath.costToEnter(Ken.copy(sobriety = Unconscious))
+  people.map(p => p -> ClubbedToDeath.costToEnter(p))
+    .foreach(t => println(s"Result for ${t._1} is ${t._2}"))
 
 }

@@ -2,8 +2,8 @@ package org.kornel.scalar.mini._05_beexplicit.validation.app
 
 import org.kornel.scalar.mini._05_beexplicit.validation._
 
+import scalaz.Scalaz._
 import scalaz._
-import Scalaz._
 
 object ClubTropicana extends Nightclub {
   def costToEnter(p: Person): ValidationNel[String, Double] = {
@@ -14,16 +14,14 @@ object ClubTropicana extends Nightclub {
   }
 }
 
-object ClubTropicanaApp {
-
-  val Ken = Person(Male, 28, Set("Tie", "Shirt"), Tipsy)
+object ClubTropicanaApp extends App {
 
   val Dave = Person(Male, 41, Set("Tie", "Jeans"), Sober)
-
   val Ruby = Person(Female, 25, Set("High Heels"), Tipsy)
 
-  ClubTropicana.costToEnter(Dave.copy(sobriety = Paralytic))
+  val people = List(Dave.copy(sobriety = Paralytic), Ruby)
 
-  ClubTropicana.costToEnter(Ruby)
+  people.map(p => p -> ClubTropicana.costToEnter(p))
+    .foreach(t => println(s"Result for ${t._1} is ${t._2}"))
 
 }
