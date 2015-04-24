@@ -1,6 +1,6 @@
 package org.kornel.scalar.mini._00_oo
 
-object OOApp extends App {
+object TraitDemoApp extends App {
 
   trait Animal {
     val name: String
@@ -11,6 +11,7 @@ object OOApp extends App {
   }
 
   class Dog(val name: String) extends Animal with Friendly
+
 
   val barry = new Dog("Barry")
 

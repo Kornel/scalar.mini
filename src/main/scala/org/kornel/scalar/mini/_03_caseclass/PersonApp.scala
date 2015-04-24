@@ -4,7 +4,7 @@ object PersonApp extends App {
 
   case class Person(name: String, age: Int)
 
-  val p1 = Person("Bob", 20)
+  val p1 = new Person("Bob", 20)
   val p2 = Person("John", 18)
   val p3 = Person("Steve", 40)
   val p4 = Person("Bob", 20)
